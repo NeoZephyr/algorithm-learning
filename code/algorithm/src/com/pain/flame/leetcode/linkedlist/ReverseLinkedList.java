@@ -2,7 +2,7 @@ package com.pain.flame.leetcode.linkedlist;
 
 public class ReverseLinkedList {
 
-    public class ListNode {
+    public static class ListNode {
         int val;
         ListNode next;
         ListNode(int x) { val = x; }
