@@ -140,7 +140,7 @@ public class GenericArray<T> {
 
     private void checkIndex(int index) {
         if (index < 0 || index >= size) {
-            throw new IllegalArgumentException("Require index >=0 and index < size.");
+            throw new IllegalArgumentException("Require index >= 0 and index < size.");
         }
     }
 
