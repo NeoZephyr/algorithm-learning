@@ -1,11 +1,11 @@
-package com.pain.flame.lab;
+package com.pain.flame.lab.reflect;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class ReflectTest {
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Class<?> klass = Class.forName("com.pain.flame.lab.ReflectTest");
+        Class<?> klass = Class.forName("com.pain.flame.lab.reflect.ReflectTest");
         Method method = klass.getMethod("trace", int.class);
         method.setAccessible(true);
         polluteProfile();

@@ -1,4 +1,4 @@
-package com.pain.flame.lab;
+package com.pain.flame.lab.reflect;
 
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
