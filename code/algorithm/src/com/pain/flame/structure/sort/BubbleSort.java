@@ -1,31 +1,6 @@
 package com.pain.flame.structure.sort;
 
-import com.pain.flame.structure.common.ArrayUtils;
-
-import java.util.Arrays;
-
 public class BubbleSort {
-
-    public static void main(String[] args) {
-        boolean result;
-
-        for (int i = 0; i < 1000; ++i) {
-            int[] data1 = ArrayUtils.genIntArray(1000, 0, 100);
-            int[] data2 = Arrays.copyOf(data1, 1000);
-            new BubbleSort().sort(data1);
-            Arrays.sort(data2);
-            result = ArrayUtils.compare(data1, data2);
-
-            if (!result) {
-                System.out.println("ERROR");
-                System.out.printf("data1: %s\n", Arrays.toString(data1));
-                System.out.printf("data2: %s\n", Arrays.toString(data2));
-                break;
-            }
-        }
-
-        System.out.println("Complete");
-    }
 
     /**
      *
@@ -53,14 +28,14 @@ public class BubbleSort {
             return;
         }
 
-        boolean swap = false;
-
         for (int i = 1; i < data.length; ++i) {
+            boolean swap = false;
+
             for (int j = 0; j < data.length - i; ++j) {
-                if (data[j + 1] < data[j]) {
-                    int tmp = data[j];
-                    data[j] = data[j + 1];
-                    data[j + 1] = tmp;
+                if (data[j] > data[j + 1]) {
+                    int tmp = data[j + 1];
+                    data[j + 1] = data[j];
+                    data[j] = tmp;
                     swap = true;
                 }
             }
@@ -68,6 +43,35 @@ public class BubbleSort {
             if (!swap) {
                 return;
             }
+        }
+    }
+
+    public void borderSort(int[] data) {
+        if (data == null || data.length == 0 || data.length == 1) {
+            return;
+        }
+
+        int lastSwap = 0;
+        int sortBorder = data.length - 1;
+
+        for (int i = 1; i < data.length; ++i) {
+            boolean swap = false;
+
+            for (int j = 0; j < sortBorder; ++j) {
+                if (data[j] > data[j + 1]) {
+                    int tmp = data[j + 1];
+                    data[j + 1] = data[j];
+                    data[j] = tmp;
+                    swap = true;
+                    lastSwap = j;
+                }
+            }
+
+            if (!swap) {
+                break;
+            }
+
+            sortBorder = lastSwap;
         }
     }
 }
