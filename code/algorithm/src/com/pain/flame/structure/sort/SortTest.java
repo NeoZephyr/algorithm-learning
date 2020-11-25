@@ -14,9 +14,14 @@ public class SortTest {
             int[] data2 = Arrays.copyOf(data1, 1000);
             // new BubbleSort().sort(data1);
             // new BubbleSort().borderSort(data1);
+
             // new InsertSort().sort(data1);
-            new InsertSort().shellSort(data1);
+            // new InsertSort().shellSort(data1);
+
             // new SelectSort().sort(data1);
+
+            new MergeSort().sort(data1);
+
             Arrays.sort(data2);
             result = ArrayUtils.compare(data1, data2);
 
