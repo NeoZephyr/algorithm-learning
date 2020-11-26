@@ -20,7 +20,9 @@ public class SortTest {
 
             // new SelectSort().sort(data1);
 
-            new MergeSort().sort(data1);
+            // new MergeSort().sort(data1);
+
+            new QuickSort().sort(data1);
 
             Arrays.sort(data2);
             result = ArrayUtils.compare(data1, data2);
