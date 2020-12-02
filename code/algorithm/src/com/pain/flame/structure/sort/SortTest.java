@@ -10,7 +10,7 @@ public class SortTest {
         boolean result;
 
         for (int i = 0; i < 1000; ++i) {
-            int[] data1 = ArrayUtils.genIntArray(1000, 0, 100);
+            int[] data1 = ArrayUtils.genIntArray(1000, 0, 20);
             int[] data2 = Arrays.copyOf(data1, 1000);
             // new BubbleSort().sort(data1);
             // new BubbleSort().borderSort(data1);
@@ -22,7 +22,9 @@ public class SortTest {
 
             // new MergeSort().sort(data1);
 
-            new QuickSort().sort(data1);
+            // new QuickSort().sort(data1);
+
+            new BucketSort().sort(data1);
 
             Arrays.sort(data2);
             result = ArrayUtils.compare(data1, data2);

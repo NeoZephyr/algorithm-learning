@@ -1,18 +1,14 @@
 package com.pain.flame.structure.common;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class ArrayUtils {
 
     public static int[] genIntArray(int size, int start, int end) {
         int[] arr = new int[size];
 
-        Random random = new Random();
-        random.setSeed(System.currentTimeMillis());
-
         for (int i = 0; i < size; ++i) {
-            arr[i] = random.nextInt(end - start) + start;
+            arr[i] = RandomUtils.randomInt(start, end);
         }
 
         return arr;
