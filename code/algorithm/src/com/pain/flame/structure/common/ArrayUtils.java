@@ -1,6 +1,7 @@
 package com.pain.flame.structure.common;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class ArrayUtils {
 
@@ -9,6 +10,25 @@ public class ArrayUtils {
 
         for (int i = 0; i < size; ++i) {
             arr[i] = RandomUtils.randomInt(start, end);
+        }
+
+        return arr;
+    }
+
+    public static int[] genDistinctIntArray(int size, int start, int end) {
+        if (size > (end - start + 1)) {
+            throw new RuntimeException("range error");
+        }
+        int[] arr = new int[size];
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int i = 0; i < size;) {
+            int cand = RandomUtils.randomInt(start, end);
+
+            if (!set.contains(cand)) {
+                set.add(cand);
+                arr[i++] = cand;
+            }
         }
 
         return arr;
