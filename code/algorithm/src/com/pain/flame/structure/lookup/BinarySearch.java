@@ -47,6 +47,110 @@ public class BinarySearch {
         return search(data, 0, data.length - 1, target);
     }
 
+    public int searchFirstEqual(int[] data, int target) {
+        if (data == null || data.length == 0) {
+            return -1;
+        }
+
+        int left = 0;
+        int right = data.length - 1;
+
+        while (left <= right) {
+            int mid = left + ((right - left) >> 1);
+
+            if (data[mid] > target) {
+                right = mid - 1;
+            } else if (data[mid] < target) {
+                left = mid + 1;
+            } else {
+                if (mid == 0 || (data[mid - 1] != target)) {
+                    return mid;
+                }
+
+                right = mid - 1;
+            }
+        }
+
+        return -1;
+    }
+
+    public int searchLastEqual(int[] data, int target) {
+        if (data == null || data.length == 0) {
+            return -1;
+        }
+
+        int left = 0;
+        int right = data.length - 1;
+
+        while (left <= right) {
+            int mid = left + ((right - left) >> 1);
+
+            if (data[mid] > target) {
+                right = mid - 1;
+            } else if (data[mid] < target) {
+                left = mid + 1;
+            } else {
+                if (mid == data.length - 1 || data[mid + 1] != target) {
+                    return mid;
+                }
+
+                left = mid + 1;
+            }
+        }
+
+        return -1;
+    }
+
+    public int searchFirstGreatOrEqual(int[] data, int target) {
+        if (data == null || data.length == 0) {
+            return -1;
+        }
+
+        int left = 0;
+        int right = data.length - 1;
+
+        while (left <= right) {
+            int mid = left + ((right - left) >> 1);
+
+            if (data[mid] >= target) {
+                if (mid == 0 || data[mid - 1] < target) {
+                    return mid;
+                }
+
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+
+        return -1;
+    }
+
+    public int searchLastLessOrEqual(int[] data, int target) {
+        if (data == null || data.length == 0) {
+            return -1;
+        }
+
+        int left = 0;
+        int right = data.length - 1;
+
+        while (left <= right) {
+            int mid = left + ((right - left) >> 1);
+
+            if (data[mid] <= target) {
+                if (mid == data.length - 1 || data[mid + 1] > target) {
+                    return mid;
+                }
+
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        return -1;
+    }
+
     private int search(int[] data, int left, int right, int target) {
         if (left > right) {
             return -1;
